@@ -1,32 +1,17 @@
 package br.com.pacotePrincipal.entidade;
 
-import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+
+/**
+ * Classe tem a funcionalidade de ser a intancia para outras Entidade do tipo Usuario para 
+ *  view na parte de login e cadastro de usuario
+ * @author Adriano
+ *
+ */
+public class Usuario{
 
 
 
-@Entity
-@Table(name="usuario")
-@SequenceGenerator(name = "usuario_seq", sequenceName = "usuario_seq",allocationSize=1,initialValue=1)
-public class Usuario implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@Column(name = "id", nullable = false)
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "usuario_seq")
 	private long id;
 	
 	public Usuario() {
@@ -41,17 +26,15 @@ public class Usuario implements Serializable {
 		this.role = role;
 	}
 
-	@Column(name = "email", length = 150, nullable = false)
+
 	private String email;
 	
-	@Column(name = "senha", length = 100, nullable = false)
+
 	private String senha;
-	
-	@Column(name = "nome", length = 100, nullable = false)
+
 	private String nome;
 	
-	@Enumerated(EnumType.STRING)
-	@Column(name = "user_role")
+
 	private Role role;
 
 	public Role getRole() {

@@ -8,7 +8,7 @@
 	uri="http://www.springframework.org/security/tags"%>
 <style>
 .recuo {
-	padding-right: 25px;
+	padding-right: 32px;
 }
 </style>
 <sec:authorize access="isAuthenticated()">
@@ -32,20 +32,17 @@
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li><a href="formUsuario">Usuario</a></li>
-						<li><a href="">Semestre</a></li>
-						<li><a href="#">Curso</a></li>
-						<li><a href="formAddDisciplina">Disciplina</a></li>
+						<li><a href="formSemestre">Semestre</a></li>
+						<li><a href="formCurso">Curso</a></li>
+						<li><a href="formDisciplina">Disciplina</a></li>
 						<li><a href="#">Configurações</a></li>
 					</ul>
-
 					<ul class="nav navbar-nav navbar-right">
-						<li><p class="navbar-text">
-								<span class="glyphicon glyphicon-user"></span> ${nomeUsuario}
-							</p></li>
+						
 						<li class="recuo"><p class="navbar-text">
 								<a href="<c:url value="/j_spring_security_logout"/>"
 									class="navbar-link"><span
-									class="glyphicon glyphicon-log-out"></span>Sair</a>
+									class="glyphicon glyphicon-log-out"></span> Sair</a>
 							</p></li>
 					</ul>
 				</div>

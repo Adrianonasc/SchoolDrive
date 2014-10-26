@@ -5,7 +5,7 @@
     <persistence-unit name="ShoolDrivePU" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         	
-        	 <class>br.com.pacotePrincipal.entidade.Usuario</class>
+        	 
         	 <class>br.com.pacotePrincipal.entidade.Administrador</class>
         	 <class>br.com.pacotePrincipal.entidade.Professor</class>
         	 <class>br.com.pacotePrincipal.entidade.Aluno</class>

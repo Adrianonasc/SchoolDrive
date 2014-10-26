@@ -6,7 +6,7 @@ public enum TipoMensagem {
 	 * As descricoes contidas nos enums sao referencias a tags do framework Bootstrap 3.1.1
 	 */
 
-	ERRO("error"), ALERTA("warning"), SUCESSO("success"),VARIAVEL_VIEW("tipo");
+	ERRO("danger"), ALERTA("warning"), SUCESSO("success"),VARIAVEL_VIEW("tipo");
 
 	private TipoMensagem(String name) {
 		this.valor = name;

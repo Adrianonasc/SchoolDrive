@@ -4,6 +4,8 @@ public enum Mensagems {
 	UsuarioCadastrado("Usuario Cadastrado Com Sucesso"),
 	UsuarioExcluido("Usuario Excluido!"),
 	ErroOperacaoUsuario("Ocorreu Um Erro !"),
+	DisciplinaCadastrada("Disciplina Cadastrada"),
+	
 	
 	
 	VARIAVEL_VIEW("mensagens")

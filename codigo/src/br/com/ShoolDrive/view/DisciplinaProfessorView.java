@@ -1,5 +1,7 @@
 package br.com.ShoolDrive.view;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,8 +58,11 @@ public class DisciplinaProfessorView {
 		ModelAndView model =new ModelAndView(AliasPaginas.VIEW_ALOCAR_PROFESSOR);
 		
 		try {
-		
-		model.addObject("professores", professorController.findAll());
+			List<Professor> professores = professorController.findAll();
+			if (professores == null || professores.size() == 0) {
+				throw new RNException("Não há professor para alocação");
+			}
+		model.addObject("professores", professores);
 		model.addObject("disciplinas", disciplinaController.listaDisciplina());
 		} catch (RNException e) {
 			model.addObject(TipoMensagem.VARIAVEL_VIEW.getValor(), TipoMensagem.ERRO.getValor());

@@ -61,7 +61,6 @@
 						<span class="glyphicon glyphicon-saved"></span>Cadastrar
 						Disciplina
 					</button>
-					<a href="">Voltar</a>
 				</form:form>
 			</div>
 		</div>

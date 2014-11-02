@@ -38,7 +38,7 @@
 					<button type="submit" class="btn btn-primary">
 						<span class="glyphicon glyphicon-saved"></span>Cadastrar Curso
 					</button>
-					<a href="/">Voltar</a>
+					
 				</form:form>
 			</div>
 		</div>

@@ -49,7 +49,7 @@
 							<c:forEach var="disciplina" items="${disciplinas}">
 								<tr>
 									<td align="center">${disciplina.nome}</td>
-									<td align="center"><c:if test="${! empty disciplina.curso.nome }"/> </td>
+									<td align="center"><c:if test="${! empty disciplina.curso.nome }">${disciplina.curso.nome}</c:if> </td>
 									<td align="center">
 									<a class="btn btn-danger" href="excluirDisciplina?id=${disciplina.id}"> 
 									<span class="glyphicon glyphicon-remove-sign"></span>Excluir

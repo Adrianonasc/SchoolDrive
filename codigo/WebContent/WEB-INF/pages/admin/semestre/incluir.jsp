@@ -31,6 +31,7 @@
 					<jsp:param value="${tipo}" name="tipo" />
 					<jsp:param value="${mensagens}" name="mensagens" />
 				</jsp:include>
+				
 				<div class="page-header">
 					<h3>Abrir Semestre</h3>
 				</div>

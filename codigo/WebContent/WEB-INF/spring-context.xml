@@ -8,7 +8,7 @@
 	<!-- Ativando Anotaçoes -->
 	<context:annotation-config />
 
-	<context:component-scan base-package="br.com.pacotePrincipal" />
+	<context:component-scan base-package="br.com.ShoolDrive" />
 
 
 	<!-- Import de todas as configuraçoes sepadara por camada -->

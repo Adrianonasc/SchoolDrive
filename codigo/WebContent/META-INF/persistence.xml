@@ -6,13 +6,13 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         	
         	 
-        	 <class>br.com.pacotePrincipal.entidade.Administrador</class>
-        	 <class>br.com.pacotePrincipal.entidade.Professor</class>
-        	 <class>br.com.pacotePrincipal.entidade.Aluno</class>
-         	 <class>br.com.pacotePrincipal.entidade.Role</class>
-         	 <class>br.com.pacotePrincipal.entidade.Disciplina</class>
-         	 <class>br.com.pacotePrincipal.entidade.Semestre</class>
-         	 <class>br.com.pacotePrincipal.entidade.Curso</class>
+        	 <class>br.com.ShoolDrive.entidade.Administrador</class>
+        	 <class>br.com.ShoolDrive.entidade.Professor</class>
+        	 <class>br.com.ShoolDrive.entidade.Aluno</class>
+         	 <class>br.com.ShoolDrive.entidade.Role</class>
+         	 <class>br.com.ShoolDrive.entidade.Disciplina</class>
+         	 <class>br.com.ShoolDrive.entidade.Semestre</class>
+         	 <class>br.com.ShoolDrive.entidade.Curso</class>
          	 
         
         <properties>

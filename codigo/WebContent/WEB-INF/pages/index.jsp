@@ -20,7 +20,7 @@
 
 			<div class="wrapper">
 				<form class="form-signin" method="POST"
-					action="<c:url value='/SpringMVC/j_spring_security_check'/>"
+					action="<c:url value='/ShoolDrive/j_spring_security_check'/>"
 					name="formLogin">
 					<h2 class="form-signin-heading" align="center">Acesso</h2>
 					<input type="text" class="form-control" name="j_username"

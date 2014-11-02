@@ -31,18 +31,23 @@
 				</div>
 				<form action="alocarProfessor" method="post" role="form">
 					<div class="form-group">
-						<label for="nome">Nome Professor</label>
-						<form:input type="text" class="form-control" id="nome" path="nome" />
+						<label>Escolha um Professor</label> 
+						<select name="professor"	cssClass="form-control" required='required'>
+							<c:forEach var="professor" items="${professores}">
+								<option value="${professor.id}"><c:out value="${professor.nome}" /></option>
+							</c:forEach>
+						</select>
 					</div>
-					<div class="checkbox">
-						<c:forEach var="disciplina" items="disciplinas">
-							<label> 
-							<input type="checkbox" value="${disciplina.id}">${disciplina.nome}
-							</label>
-						</c:forEach>
+					<div class="form-group">
+						<label>Escolha a Disciplina</label> 
+						<select name="disciplina"	cssClass="form-control" required='required'>
+							<c:forEach var="disciplina" items="${disciplinas}">
+								<option value="${disciplina.id}"><c:out value="${disciplina.nome}" /></option>
+							</c:forEach>
+						</select>
 					</div>
 					<button type="submit" class="btn btn-primary">
-						<span class="glyphicon glyphicon-saved"></span>Cadastrar Curso
+						<span class="glyphicon glyphicon-saved"></span>Alocar Professor
 					</button>
 
 				</form>

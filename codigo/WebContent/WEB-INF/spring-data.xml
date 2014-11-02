@@ -44,5 +44,5 @@
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
 	 <!-- Spring Data -->
-    <jpa:repositories base-package="br.com.pacotePrincipal.dao"/>
+    <jpa:repositories base-package="br.com.ShoolDrive.dao"/>
 </beans>

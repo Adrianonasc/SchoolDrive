@@ -1,7 +1,5 @@
 package br.com.ShoolDrive.controler;
 
-import java.util.List;
-
 import br.com.ShoolDrive.entidade.Disciplina;
 import br.com.ShoolDrive.exception.RNException;
 
@@ -23,5 +21,6 @@ public interface IDisciplinaController {
 	 * @return
 	 */
 	public Iterable<Disciplina> listaDisciplina()throws RNException;
+	
 	
 }

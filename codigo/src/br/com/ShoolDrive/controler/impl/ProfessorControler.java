@@ -9,6 +9,7 @@ import br.com.ShoolDrive.controler.IProfessorController;
 import br.com.ShoolDrive.dao.IProfessorDao;
 import br.com.ShoolDrive.entidade.Professor;
 import br.com.ShoolDrive.entidade.Role;
+import br.com.ShoolDrive.exception.RNException;
 @Service
 public class ProfessorControler implements IProfessorController {
 	
@@ -43,7 +44,10 @@ public class ProfessorControler implements IProfessorController {
 	}
 
 	@Override
-	public List<Professor> findAll() {		
+	public List<Professor> findAll() throws RNException {
+		if (professorDao.count() == 0) {
+			throw new RNException("Não ha professor Cadastrado");
+		}
 		return (List<Professor>) professorDao.findAll();
 	}
 

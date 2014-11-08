@@ -1,5 +1,6 @@
 package br.com.ShoolDrive.controler.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,23 +41,19 @@ public class DisciplinaController implements IDisciplinaController {
 
 	@Override
 	public List<Disciplina> listaDisciplina() throws RNException {
-		List<Disciplina> listaDisciplina = (List<Disciplina>) disciplinaDao.findAll();
+		List<Disciplina> listaDisciplina = new ArrayList<Disciplina>();
 		
-		if (listaDisciplina.size() == 0) {
-			throw new RNException("Não a Disciplinas Cadastrada!!");
+		if (disciplinaDao.count() == 0) {
+			throw new RNException("NÃ£o a Disciplinas Cadastrada!!");
 		}
-		
-		for (int i = 0; i < listaDisciplina.size(); i++) {
-			if (listaDisciplina.get(i).getProfessor() != null) {
-				listaDisciplina.remove(i);
+		for (Disciplina disciplina : disciplinaDao.findAll()) {
+			if (disciplina.getProfessor() == null) {
+				listaDisciplina.add(disciplina);
 			}
 		}
-		
-		if (listaDisciplina.size() <= 0) {
-			throw new RNException("Não a Disciplinas Sem professor alocado");
+		if (listaDisciplina.size() == 0) {
+			throw new RNException("NÃ£o a Disciplinas Sem professor alocado");
 		}
-
 		return listaDisciplina;
 	}
-
 }

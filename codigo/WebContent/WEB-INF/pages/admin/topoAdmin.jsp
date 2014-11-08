@@ -51,6 +51,4 @@
 			<!-- /.container-fluid -->
 		</nav>
 	</div>
-
-
 </sec:authorize>

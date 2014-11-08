@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.com.ShoolDrive.entidade.Professor;
 import br.com.ShoolDrive.entidade.Role;
+import br.com.ShoolDrive.exception.RNException;
 
 public interface IProfessorController{
 	/**
@@ -35,7 +36,7 @@ public interface IProfessorController{
 	 * Pesquisa Todos os Usuario
 	 * @return
 	 */
-	List<Professor> findAll();
+	List<Professor> findAll()throws RNException ;
 	// Metodos Spring
 
 	

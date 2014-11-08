@@ -19,5 +19,6 @@ public interface IDisciplinaDao extends CrudRepository<Disciplina, Long> {
 	@Override
 	public <S extends Disciplina> S save(S disciplina);
 	
-	
+	@Override
+	public long count();
 }

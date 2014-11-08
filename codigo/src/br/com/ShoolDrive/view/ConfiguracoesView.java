@@ -27,7 +27,7 @@ import br.com.ShoolDrive.util.TipoMensagem;
 
 @Controller
 @Secured("ROLE_ADMIN")
-public class DisciplinaProfessorView {
+public class ConfiguracoesView {
 	
 	@Autowired
 	private IProfessorController professorController;
@@ -58,10 +58,7 @@ public class DisciplinaProfessorView {
 		ModelAndView model =new ModelAndView(AliasPaginas.VIEW_ALOCAR_PROFESSOR);
 		
 		try {
-			List<Professor> professores = professorController.findAll();
-			if (professores == null || professores.size() == 0) {
-				throw new RNException("Não há professor para alocação");
-			}
+		List<Professor> professores = professorController.findAll();
 		model.addObject("professores", professores);
 		model.addObject("disciplinas", disciplinaController.listaDisciplina());
 		} catch (RNException e) {

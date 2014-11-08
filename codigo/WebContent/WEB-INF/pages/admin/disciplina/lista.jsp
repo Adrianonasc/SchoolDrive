@@ -17,7 +17,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-7 col-lg-offset-1">
-			
+
 				<!-- mensagens -->
 				<jsp:include page="../../mensagens.jsp">
 					<jsp:param value="${tipo}" name="tipo" />
@@ -35,24 +35,28 @@
 						</div>
 					</div>
 				</div>
-
+				<div class="page-header">
+					<h2>Disciplina Cadastradas</h2>
+				</div>
 				<div class="table-responsive">
 					<table class="table table-bordered">
 						<thead align="center">
-						<tr >
-							<th>Nome Disciplina</th>
-							<th>Curso</th>
-							<th>Excluir</th>
-						</tr>
+							<tr>
+								<th>Nome Disciplina</th>
+								<th>Curso</th>
+								<th>Excluir</th>
+							</tr>
 						</thead>
 						<tbody>
 							<c:forEach var="disciplina" items="${disciplinas}">
 								<tr>
 									<td align="center">${disciplina.nome}</td>
-									<td align="center"><c:if test="${! empty disciplina.curso.nome }">${disciplina.curso.nome}</c:if> </td>
-									<td align="center">
-									<a class="btn btn-danger" href="excluirDisciplina?id=${disciplina.id}"> 
-									<span class="glyphicon glyphicon-remove-sign"></span>Excluir
+									<td align="center"><c:if
+											test="${! empty disciplina.curso.nome }">${disciplina.curso.nome}</c:if>
+									</td>
+									<td align="center"><a class="btn btn-danger"
+										href="excluirDisciplina?id=${disciplina.id}"> <span
+											class="glyphicon glyphicon-remove-sign"></span>Excluir
 									</a></td>
 								</tr>
 							</c:forEach>

@@ -22,6 +22,7 @@ import br.com.ShoolDrive.entidade.Administrador;
 import br.com.ShoolDrive.entidade.Aluno;
 import br.com.ShoolDrive.entidade.Professor;
 import br.com.ShoolDrive.entidade.Usuario;
+import br.com.ShoolDrive.exception.RNException;
 import br.com.ShoolDrive.util.AliasPaginas;
 import br.com.ShoolDrive.util.Mensagems;
 import br.com.ShoolDrive.util.TipoMensagem;
@@ -70,6 +71,7 @@ public class UsuarioView {
 		model.addObject(Mensagems.VARIAVEL_VIEW.getMensagem(), Mensagems.UsuarioCadastrado.getMensagem());
 		model.addObject("usuarios", listaUsuario());
 		
+		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -98,7 +100,7 @@ public class UsuarioView {
 			} else if (role.equals("ROLE_PROFESSOR")) {
 				professorController.delete(id);
 			}
-			model.addObject(this.listaUsuario(null));
+			model.addObject("usuarios", listaUsuario());
 			model.addObject(TipoMensagem.VARIAVEL_VIEW.getValor(), TipoMensagem.SUCESSO.getValor());
 			model.addObject(Mensagems.VARIAVEL_VIEW.getMensagem(), Mensagems.UsuarioExcluido.getMensagem());
 		} catch (Exception e) {
@@ -118,9 +120,13 @@ public class UsuarioView {
 			usuario = new Usuario(aluno.getId(), aluno.getEmail(), aluno.getSenha(), aluno.getNome(), aluno.getRole());
 			listUsuario.add(usuario);
 		}
-		for (Professor professor : professorController.findAll()) {
-			usuario = new Usuario(professor.getId(), professor.getEmail(), professor.getSenha(), professor.getNome(), professor.getRole());
-			listUsuario.add(usuario);
+		try {
+			for (Professor professor : professorController.findAll()) {
+				usuario = new Usuario(professor.getId(), professor.getEmail(), professor.getSenha(), professor.getNome(), professor.getRole());
+				listUsuario.add(usuario);
+			}
+		} catch (RNException e) {
+			e.printStackTrace();
 		}
 		for (Administrador administrador : administradorController.findAll()) {
 			usuario = new Usuario(administrador.getId(), administrador.getEmail(), administrador.getSenha(), administrador.getNome(), administrador.getRole());
@@ -128,5 +134,4 @@ public class UsuarioView {
 		}
 		return listUsuario;
 	}
-	
 }

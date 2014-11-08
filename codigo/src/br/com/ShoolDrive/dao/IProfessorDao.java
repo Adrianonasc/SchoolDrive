@@ -38,4 +38,8 @@ public interface IProfessorDao extends CrudRepository<Professor, Long> {
 
 	@Override
 	public <S extends Professor> S save(S arg0);
+	
+	
+	@Override
+	public long count();
 }

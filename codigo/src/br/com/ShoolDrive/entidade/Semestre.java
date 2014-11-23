@@ -24,11 +24,11 @@ public class Semestre implements Serializable {
 	private static final long serialVersionUID = 8547206754575134293L;
 	
 	@Id
-	@Column(name = "id", nullable = false)
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "semestre_seq")
 	private long id;
 
-	@Column(name = "ano_semestre", length = 150, nullable = false)
+	@Column(name = "ano_semestre", length = 150)
 	private String anoSemestre;
 	
 	/**
@@ -36,7 +36,7 @@ public class Semestre implements Serializable {
 	 *<i>TRUE </i><b> = Estado Aberto</b> <p>
 	 *<i>FALSE </i><b>= Estado Fechado</b> 
 	 */
-	@Column(name = "status", nullable = false)
+	@Column(name = "status")
 	private boolean status;
 
 

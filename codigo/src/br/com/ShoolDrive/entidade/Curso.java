@@ -24,13 +24,12 @@ public class Curso implements Serializable{
 
 	public Curso() {}
 	
-	
 	@Id
-	@Column(name = "id", nullable = false)
+	@Column(name = "curso_id")
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "curso_seq")
 	private long id;
 
-	@Column(name = "nome", length = 150, nullable = false)
+	@Column(name = "nome", length = 150)
 	private String nome;
 	
 	@OneToMany(mappedBy="curso")
@@ -40,7 +39,19 @@ public class Curso implements Serializable{
 	@JoinColumn(name="semestre_id")
 	private Semestre semestre;
 	
+	@OneToMany(mappedBy="curso")
+	private List<Aluno> alunos;
 	
+	
+	
+	public List<Aluno> getAlunos() {
+		return alunos;
+	}
+
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
+	}
+
 	public Semestre getSemestre() {
 		return semestre;
 	}

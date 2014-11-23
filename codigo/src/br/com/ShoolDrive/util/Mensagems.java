@@ -8,7 +8,7 @@ public enum Mensagems {
 	
 	
 	
-	VARIAVEL_VIEW("mensagens")
+	VARIAVEL_VIEW_MENSAGEM("mensagens")
 	
 	; 
 	

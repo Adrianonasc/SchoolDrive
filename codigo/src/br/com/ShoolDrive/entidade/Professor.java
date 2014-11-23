@@ -22,17 +22,17 @@ public class Professor implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "id", nullable = false)
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "professor_seq")
 	private long id;
 
-	@Column(name = "email", length = 150, nullable = false)
+	@Column(name = "email", length = 150)
 	private String email;
 
-	@Column(name = "senha", length = 100, nullable = false)
+	@Column(name = "senha", length = 100)
 	private String senha;
 
-	@Column(name = "nome", length = 100, nullable = false)
+	@Column(name = "nome", length = 100)
 	private String nome;
 
 	@Enumerated(EnumType.STRING)

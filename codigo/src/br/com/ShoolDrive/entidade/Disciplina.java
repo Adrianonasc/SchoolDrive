@@ -1,6 +1,7 @@
 package br.com.ShoolDrive.entidade;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -21,11 +23,11 @@ public class Disciplina implements Serializable {
 	public Disciplina() {}
 	
 	@Id
-	@Column(name = "id", nullable = false)
+	@Column(name = "disciplina_id")
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "disciplina_seq")
 	private long id;
 	
-	@Column(name="nome" ,nullable = false)
+	@Column(name="nome")
 	private String nome;
 	
 	@ManyToOne
@@ -35,6 +37,17 @@ public class Disciplina implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="curso_id")
 	private Curso curso;
+	
+	@ManyToMany(mappedBy="disciplinas")
+	private List<Aluno> alunos;
+
+	public List<Aluno> getAlunos() {
+		return alunos;
+	}
+
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
+	}
 
 	public long getId() {
 		return id;

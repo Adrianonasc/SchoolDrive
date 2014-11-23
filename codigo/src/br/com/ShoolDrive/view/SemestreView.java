@@ -56,13 +56,13 @@ public class SemestreView {
 		ModelAndView model = new ModelAndView(AliasPaginas.LISTA_SEMESTRE);
 		try {
 			semestreController.save(semestre);	
-			model.addObject(TipoMensagem.VARIAVEL_VIEW.getValor(), TipoMensagem.SUCESSO.getValor());
-			model.addObject(Mensagems.VARIAVEL_VIEW.getMensagem(), "Semestre Aberto");
+			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.SUCESSO.getValor());
+			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), "Semestre Aberto");
 			model.addObject(this.formSemestre(model));
 		} catch (RNException e) {
 			model.addObject(this.formSemestre(model));
-			model.addObject(TipoMensagem.VARIAVEL_VIEW.getValor(), TipoMensagem.ERRO.getValor());
-			model.addObject(Mensagems.VARIAVEL_VIEW.getMensagem(), e.getMensagem());
+			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.ERRO.getValor());
+			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), e.getMensagem());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -74,9 +74,10 @@ public class SemestreView {
 		ModelAndView model = new ModelAndView(AliasPaginas.LISTA_SEMESTRE);
 		try {
 			semestreController.fecharSemestre(id);
-			model.addObject(TipoMensagem.VARIAVEL_VIEW.getValor(), TipoMensagem.SUCESSO.getValor());
-			model.addObject(Mensagems.VARIAVEL_VIEW.getMensagem(), "Semestre Fechado");
 			model.addObject(this.formSemestre(model));
+			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.SUCESSO.getValor());
+			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), "Semestre Fechado");
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

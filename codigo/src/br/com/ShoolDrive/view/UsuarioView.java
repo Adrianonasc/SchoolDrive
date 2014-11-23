@@ -67,8 +67,8 @@ public class UsuarioView {
 		}
 			
 		
-		model.addObject(TipoMensagem.VARIAVEL_VIEW.getValor(), TipoMensagem.SUCESSO.getValor());
-		model.addObject(Mensagems.VARIAVEL_VIEW.getMensagem(), Mensagems.UsuarioCadastrado.getMensagem());
+		model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.SUCESSO.getValor());
+		model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), Mensagems.UsuarioCadastrado.getMensagem());
 		model.addObject("usuarios", listaUsuario());
 		
 		
@@ -101,11 +101,11 @@ public class UsuarioView {
 				professorController.delete(id);
 			}
 			model.addObject("usuarios", listaUsuario());
-			model.addObject(TipoMensagem.VARIAVEL_VIEW.getValor(), TipoMensagem.SUCESSO.getValor());
-			model.addObject(Mensagems.VARIAVEL_VIEW.getMensagem(), Mensagems.UsuarioExcluido.getMensagem());
+			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.SUCESSO.getValor());
+			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), Mensagems.UsuarioExcluido.getMensagem());
 		} catch (Exception e) {
-			model.addObject(TipoMensagem.VARIAVEL_VIEW.getValor(), TipoMensagem.ERRO.getValor());
-			model.addObject(Mensagems.VARIAVEL_VIEW.getMensagem(), Mensagems.ErroOperacaoUsuario.getMensagem());
+			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.ERRO.getValor());
+			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), Mensagems.ErroOperacaoUsuario.getMensagem());
 			e.printStackTrace();
 		}
 		return model;

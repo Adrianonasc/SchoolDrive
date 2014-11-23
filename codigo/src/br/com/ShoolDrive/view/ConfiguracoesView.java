@@ -62,8 +62,8 @@ public class ConfiguracoesView {
 		model.addObject("professores", professores);
 		model.addObject("disciplinas", disciplinaController.listaDisciplina());
 		} catch (RNException e) {
-			model.addObject(TipoMensagem.VARIAVEL_VIEW.getValor(), TipoMensagem.ERRO.getValor());
-			model.addObject(Mensagems.VARIAVEL_VIEW.getMensagem(), e.getMensagem());
+			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.ERRO.getValor());
+			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), e.getMensagem());
 		}
 		return model;
 	}
@@ -88,15 +88,15 @@ public class ConfiguracoesView {
 			disciplina.setProfessor(professor);
 			disciplinaController.save(disciplina);
 			
-			model.addObject(TipoMensagem.VARIAVEL_VIEW.getValor(), TipoMensagem.SUCESSO.getValor());
-			model.addObject(Mensagems.VARIAVEL_VIEW.getMensagem(), "Professor Alocado A disciplina !!");
+			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.SUCESSO.getValor());
+			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), "Professor Alocado A disciplina !!");
 			
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 			model.setViewName("redirect:home");
-			model.addObject(TipoMensagem.VARIAVEL_VIEW.getValor(), TipoMensagem.ERRO.getValor());
-			model.addObject(Mensagems.VARIAVEL_VIEW.getMensagem(), "Ocorreu um erro !");
+			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.ERRO.getValor());
+			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), "Ocorreu um erro !");
 		}
 		return model;
 	}

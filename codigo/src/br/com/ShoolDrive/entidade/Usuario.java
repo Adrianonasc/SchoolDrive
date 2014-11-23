@@ -9,9 +9,6 @@ package br.com.ShoolDrive.entidade;
  *
  */
 public class Usuario{
-
-
-
 	private long id;
 	
 	public Usuario() {

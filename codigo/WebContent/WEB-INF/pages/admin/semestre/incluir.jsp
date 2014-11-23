@@ -72,7 +72,7 @@
 										<td><c:choose>
 												<c:when test="${! semestre.status}">
 													<a disabled class="btn btn-default"> <span
-														class="glyphicon glyphicon-remove-sign"></span> Fechar
+														class="glyphicon glyphicon-remove-sign"></span> Fechado
 													</a>
 												</c:when>
 												<c:when test="${semestre.status}">

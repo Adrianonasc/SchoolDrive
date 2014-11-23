@@ -4,7 +4,6 @@ import java.util.List;
 
 import br.com.ShoolDrive.entidade.Aluno;
 import br.com.ShoolDrive.entidade.Role;
-import br.com.ShoolDrive.entidade.Usuario;
 
 public interface IAlunoController{
 	/**
@@ -44,6 +43,8 @@ public interface IAlunoController{
 	
 	
 	public void save(Aluno arg0);
+	
+	
 
 	
 }

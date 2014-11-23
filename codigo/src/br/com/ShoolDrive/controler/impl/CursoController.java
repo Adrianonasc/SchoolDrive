@@ -18,8 +18,6 @@ public class CursoController implements ICursoController{
 	@Autowired
 	private ISemestreDao semestreDao;
 	
-	
-	
 	@Override
 	public Curso findById(Long id) {
 		return cursoDao.findById(id);

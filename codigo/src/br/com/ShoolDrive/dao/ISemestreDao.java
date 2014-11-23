@@ -1,5 +1,9 @@
 package br.com.ShoolDrive.dao;
 
+import javax.transaction.Transactional;
+
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,29 +17,35 @@ public interface ISemestreDao extends CrudRepository<Semestre, Long> {
 	 * @param status
 	 * @return a quantidade encontrado
 	 */
-	public long countByStatus(boolean status);
+	long countByStatus(boolean status);
 	
 	/**
 	 * Recupera o semestre com status passado
 	 * @param status
 	 * @return
 	 */
-	public Semestre findByStatus(boolean status);
+	Semestre findByStatus(boolean status);
 	
-	public Iterable<Semestre> findAllByOrderByStatusDesc(); 
-	
-	@Override
-	public <S extends Semestre> S save(S semestre);
-	
+	Iterable<Semestre> findAllByOrderByStatusDesc(); 
 	
 	@Override
-	public Iterable<Semestre> findAll();
+	 <S extends Semestre> S save(S semestre);
 	
 	
 	@Override
-	public Semestre findOne(Long id);
+	 Iterable<Semestre> findAll();
 	
-	/*@Query("SELECT id, ano_semestre, status FROM semestre ORDER By status desc")
-	public List<Semestre> todos();*/
+	
+	@Override
+	 Semestre findOne(Long id);
+	
+	
+	/**
+	 * Metodo Responsavel Por Apagar todos registro dos aluno nas disciplinas
+	 */
+	@Modifying
+	@Transactional
+	@Query(value="TRUNCATE registrado_disciplina RESTART IDENTITY",nativeQuery=true)
+	void deletarRegistroDisciciplina();
 	
 }

@@ -83,8 +83,8 @@ public class DisciplinaView {
 			disciplina.setCurso(cursoController.findById(Long.valueOf(request.getParameter("curso"))));
 			disciplinaController.save(disciplina);
 			
-			model.addObject(TipoMensagem.VARIAVEL_VIEW.getValor(), TipoMensagem.SUCESSO.getValor());
-			model.addObject(Mensagems.VARIAVEL_VIEW.getMensagem(), Mensagems.DisciplinaCadastrada.getMensagem());
+			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.SUCESSO.getValor());
+			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), Mensagems.DisciplinaCadastrada.getMensagem());
 			model = this.reload(model);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -110,8 +110,8 @@ public class DisciplinaView {
 		ModelAndView model = new ModelAndView(AliasPaginas.LISTA_DISCIPLINA);
 		try {
 			disciplinaController.delete(id);	
-			model.addObject(TipoMensagem.VARIAVEL_VIEW.getValor(), TipoMensagem.SUCESSO.getValor());
-			model.addObject(Mensagems.VARIAVEL_VIEW.getMensagem(), "Disciplina Excluida");
+			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.SUCESSO.getValor());
+			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), "Disciplina Excluida");
 			model  = this.reload(model);
 		} catch (Exception e) {
 			e.printStackTrace();

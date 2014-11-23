@@ -29,7 +29,6 @@ public class AlunoControler implements IAlunoController {
 
 	@Override
 	public Aluno findByRole(Role role) {
-		// TODO Auto-generated method stub
 		return alunoDao.findByRole(role);
 	}
 

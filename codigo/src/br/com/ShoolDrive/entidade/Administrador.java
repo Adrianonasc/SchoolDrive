@@ -17,9 +17,6 @@ import javax.persistence.Table;
 @SequenceGenerator(name = "administrador_seq", sequenceName = "administrador_seq", allocationSize = 1, initialValue = 1)
 public class Administrador implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -28,11 +25,8 @@ public class Administrador implements Serializable {
 	private long id;
 
 	public Administrador() {
-		// TODO Auto-generated constructor stub
 	}
 	
-	
-
 	public Administrador(long id, String email, String senha, String nome, Role role) {
 		super();
 		this.id = id;
@@ -44,13 +38,13 @@ public class Administrador implements Serializable {
 
 
 
-	@Column(name = "email", length = 150, nullable = false)
+	@Column(name = "email", length = 150)
 	private String email;
 
-	@Column(name = "senha", length = 100, nullable = false)
+	@Column(name = "senha", length = 100)
 	private String senha;
 
-	@Column(name = "nome", length = 100, nullable = false)
+	@Column(name = "nome", length = 100)
 	private String nome;
 
 	@Enumerated(EnumType.STRING)

@@ -1,4 +1,4 @@
-package br.com.ShoolDrive.controler.impl;
+﻿package br.com.ShoolDrive.controler.impl;
 
 import java.util.List;
 
@@ -36,7 +36,9 @@ public class SemestreController implements ISemestreController {
 	public <S extends Semestre> S save(S semestre) throws RNException {
 		//Verifica se tem semestre com o mesmo nome
 		Boolean IsSemestreIqual = semestreDao.findByanoSemestre(semestre.getAnoSemestre()) != null ? true : false;
-		
+		if (semestreDao.countByStatus(true) > 0) {
+			throw new RNException("Não é possível criar um novo semestre com um semestre aberto!!");
+		}
 		if(semestreDao.count() > 0 ){
 			if(IsSemestreIqual){
 				throw new RNException("Não é possível criar um semestre com o ano e ou Periodo, menor ou igual aos últimos listados!!");
@@ -49,9 +51,7 @@ public class SemestreController implements ISemestreController {
 		if (!(semestre.getAnoSemestre().substring(0, 4).equals(Util.getDataAtual().substring(6, 10)))) {
 			throw new RNException("Data de abertura do Semestre diferente do ano Atual !!");
 		}
-		if (semestreDao.countByStatus(true) > 0) {
-			throw new RNException("Não é possível criar um novo semestre com um semestre aberto!!");
-		}else{
+		else{
 			semestre.setStatus(true);
 			semestreDao.save(semestre);
 			List<Curso> cursos = (List<Curso>) cursoDao.findAll();

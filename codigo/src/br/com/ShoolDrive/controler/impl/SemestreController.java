@@ -1,4 +1,4 @@
-﻿package br.com.ShoolDrive.controler.impl;
+package br.com.ShoolDrive.controler.impl;
 
 import java.util.List;
 
@@ -21,37 +21,48 @@ public class SemestreController implements ISemestreController {
 
 	@Autowired
 	private ISemestreDao semestreDao;
-	
+
 	@Autowired
 	private ICursoDao cursoDao;
-	
+
 	@Autowired
 	private IDisciplinaDao disciplinaDao;
-	
+
 	@Autowired
 	private IAlunoDao alunoDao;
-	
-	
+
 	@Override
 	public <S extends Semestre> S save(S semestre) throws RNException {
-		//Verifica se tem semestre com o mesmo nome
-		Boolean IsSemestreIqual = semestreDao.findByanoSemestre(semestre.getAnoSemestre()) != null ? true : false;
+		// Verifica se tem semestre com o mesmo nome
+		Boolean IsSemestreIqual = semestreDao.findByanoSemestre(semestre
+				.getAnoSemestre()) != null ? true : false;
+		if ((Integer.parseInt(semestre.getAnoSemestre().substring(5)) < 1 || 
+			(Integer.parseInt(semestre.getAnoSemestre().substring(5)) > 2 ))) {
+			throw new RNException("Semestre Invalido !!");
+		}
 		if (semestreDao.countByStatus(true) > 0) {
-			throw new RNException("Não é possível criar um novo semestre com um semestre aberto!!");
-		}
-		if(semestreDao.count() > 0 ){
-			if(IsSemestreIqual){
-				throw new RNException("Não é possível criar um semestre com o ano e ou Periodo, menor ou igual aos últimos listados!!");
+			throw new RNException(
+					"Não é possível criar um novo semestre com um semestre aberto!!");
+		} else {
+			if (semestreDao.count() > 0) {
+				if (IsSemestreIqual) {
+					throw new RNException(
+							"Não é possível criar um semestre com o ano e ou Periodo, menor ou igual aos últimos listados!!");
+				}
+				/*if (!(Integer.parseInt(semestre.getAnoSemestre().substring(5)) > Integer
+						.parseInt(((List<Semestre>) semestreDao
+								.findAllByOrderByStatusDesc()).iterator()
+								.next().getAnoSemestre().substring(5)))) {
+					throw new RNException(
+							"Não é possível criar um semestre com o ano e ou Periodo, menor ou igual aos últimos listados!!");
+				}*/
 			}
-			if(!(Integer.parseInt(semestre.getAnoSemestre().substring(5)) >  
-			   Integer.parseInt(((List<Semestre>)semestreDao.findAllByOrderByStatusDesc()).iterator().next().getAnoSemestre().substring(5)))){
-				throw new RNException("Não é possível criar um semestre com o ano e ou Periodo, menor ou igual aos últimos listados!!");
+			if (!(semestre.getAnoSemestre().substring(0, 4).equals(Util
+					.getDataAtual().substring(6, 10)))) {
+				throw new RNException(
+						"Data de abertura do Semestre diferente do ano Atual !!");
 			}
-		}
-		if (!(semestre.getAnoSemestre().substring(0, 4).equals(Util.getDataAtual().substring(6, 10)))) {
-			throw new RNException("Data de abertura do Semestre diferente do ano Atual !!");
-		}
-		else{
+
 			semestre.setStatus(true);
 			semestreDao.save(semestre);
 			List<Curso> cursos = (List<Curso>) cursoDao.findAll();
@@ -78,18 +89,20 @@ public class SemestreController implements ISemestreController {
 		Semestre semestre = semestreDao.findOne(id);
 		semestre.setStatus(false);
 		semestreDao.save(semestre);
-		
-		//recupera todas as disciplinas e desaloca todos os professores e atualiza
-		List<Disciplina> disciplinas = (List<Disciplina>) disciplinaDao.findAll();
+
+		// recupera todas as disciplinas e desaloca todos os professores e
+		// atualiza
+		List<Disciplina> disciplinas = (List<Disciplina>) disciplinaDao
+				.findAll();
 		for (Disciplina disciplina : disciplinas) {
 			disciplina.setProfessor(null);
 			disciplinaDao.save(disciplina);
 		}
-		
-		//Retira todos os alunos das disciplinas
+
+		// Retira todos os alunos das disciplinas
 		semestreDao.deletarRegistroDisciciplina();
-		
-		//recupera todos os cursos e retira do semestre atual
+
+		// recupera todos os cursos e retira do semestre atual
 		List<Curso> cursos = (List<Curso>) cursoDao.findAll();
 		for (Curso curso : cursos) {
 			curso.setSemestre(null);

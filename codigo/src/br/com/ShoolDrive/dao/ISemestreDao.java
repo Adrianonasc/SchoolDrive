@@ -40,6 +40,9 @@ public interface ISemestreDao extends CrudRepository<Semestre, Long> {
 	 Semestre findOne(Long id);
 	
 	
+	
+	Semestre findByanoSemestre(String anoSemestre);
+	
 	/**
 	 * Metodo Responsavel Por Apagar todos registro dos aluno nas disciplinas
 	 */

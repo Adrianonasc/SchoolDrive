@@ -10,8 +10,8 @@ public interface IDisciplinaDao extends CrudRepository<Disciplina, Long> {
 	@Override
 	public void delete(Long id);
 	
-	@Override
-	public Iterable<Disciplina> findAll();
+	
+	Iterable<Disciplina> findAll();
 	
 	@Override
 	public Disciplina findOne(Long id);

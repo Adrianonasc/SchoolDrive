@@ -1,0 +1,15 @@
+               *** Execução dos Testes ***
+
+# Abrir Semestre:
+**1º ERRO:
+Ao tentar abrir um novo semestre quando houver um aberto, o sistema deveria retornar a mensagem: "Não é possível criar um novo semestre com um semestre aberto!!" ao invés da mensagem: "Não é possível criar um semestre com o ano e ou Periodo, menor ou igual aos últimos listados!!"
+(CORRIGIDO COM SUCESSO)
+**2º ERRO:
+Foi validado um novo semestre = 2014.3. O mesmo não deveria ser validado, pois é um semestre inválido. O sistema deveria retornar a mensagem: Semestre inválido!
+(CORRIGIDO COM SUCESSO)
+
+# Fechar Semestre:
+O semestre foi fechado com sucesso ao clicar no botão "Fechar".
+
+# Alocar Professor a uma Disciplina:
+A alocação foi realizada com sucesso.

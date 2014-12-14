@@ -14,9 +14,9 @@
 	<jsp:include page="topoAdmin.jsp"></jsp:include>
 
 	<!-- Corpo da pagina -->
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<jsp:include page="MenuLateral.jsp"></jsp:include>
 				<!--Corpo  das Paginas -->
 			</div>
 		</div>

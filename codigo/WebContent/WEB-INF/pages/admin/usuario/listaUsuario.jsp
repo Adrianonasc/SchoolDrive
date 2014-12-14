@@ -6,6 +6,8 @@
 <html>
 <head>
 <jsp:include page="../../css.jsp"></jsp:include>
+<link rel="stylesheet" type="text/css"
+	href="<c:url value="resources/css/admin/usuario.css" />" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SchoolDrive</title>
@@ -15,9 +17,12 @@
 	<jsp:include page="../topoAdmin.jsp"></jsp:include>
 
 	<!-- Corpo da pagina -->
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-7  col-lg-offset-1">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<jsp:include page="../MenuLateral.jsp"></jsp:include>
+
+			<div class="col-md-7">
+
 
 				<!-- mensagens -->
 				<jsp:include page="../../mensagens.jsp">
@@ -26,22 +31,26 @@
 				</jsp:include>
 
 
-				<div class="col-lg-offset-8">
-					<div class="page-header">
-					<div class="btn-group btn-group-justified">
-						<a type="button" class="btn btn-default" href="formUsuario">
-							<span class="glyphicon glyphicon-plus"></span> Inserir
-						</a>
-						<a type="submit" class="btn btn-default" href="listaUsuario"> 
-							<span class="glyphicon glyphicon-search"></span> Pesquisar
-						</a>
+				<div class="row">
+					<div class="col-md-5">
+						<div class="page-header">
+							<h2>Lista de Usuario</h2>
+						</div>
 					</div>
+					<div class="col-md-offset-2 col-md-4">
+						<div class="page-header">
+							<div class="btn-group btn-group-justified">
+								<a class="btn btn-default" href="formUsuario"> <span
+									class="glyphicon glyphicon-plus"></span> Inserir
+								</a> <a class="btn btn-default" href="listaUsuario"> <span
+									class="glyphicon glyphicon-search"></span> Pesquisar
+								</a>
+							</div>
+						</div>
 					</div>
 				</div>
-
-				<div class="page-header">
-					<h2>Lista Usuario</h2>
-				</div>
+				<br>
+				
 				<form class="form-inline" role="form">
 					<div class="form-group">
 						<label class="sr-only" for="email">Email</label> <input
@@ -64,7 +73,6 @@
 							<th>Excluir</th>
 						</tr>
 						<tbody>
-
 							<c:forEach var="usuario" items="${usuarios}">
 								<tr>
 									<td>${usuario.nome}</td>

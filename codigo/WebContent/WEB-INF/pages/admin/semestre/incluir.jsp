@@ -22,22 +22,28 @@
 	<jsp:include page="../topoAdmin.jsp"></jsp:include>
 
 	<!-- Corpo da pagina -->
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-5 col-lg-offset-1">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<jsp:include page="../MenuLateral.jsp"></jsp:include>
+
+			<div class="col-md-7">
 
 				<!-- mensagens -->
 				<jsp:include page="../../mensagens.jsp">
 					<jsp:param value="${tipo}" name="tipo" />
 					<jsp:param value="${mensagens}" name="mensagens" />
 				</jsp:include>
-				
-				<div class="page-header">
-					<h3>Abrir Semestre</h3>
+
+				<div class="row">
+					<div class="col-md-5">
+						<div class="page-header">
+							<h3>Abrir Semestre</h3>
+						</div>
+					</div>
 				</div>
 
 				<form:form action="incluirSemestre" method="post" role="form"
-					modelAttribute="semestre">
+					cssClass="form-inline" modelAttribute="semestre">
 					<div class="form-group">
 						<label for="nome">Ano e Semestre</label>
 						<form:input type="text" class="form-control" id="anoSemestre"
@@ -46,47 +52,42 @@
 					<button type="submit" class="btn btn-primary">
 						<span class="glyphicon glyphicon-saved"></span>Abrir Novo Semestre
 					</button>
-
 				</form:form>
-			</div>
-		</div>
 
-		<br> <br> <br>
-
-		<div class="row">
-			<div class="col-lg-4 col-lg-offset-1">
-				<div class="panel panel-default">
-					<div class="panel-heading">Ultimos Semestres</div>
-					<div class="panel-body">
-						<table class="table">
-							<thead>
-								<tr>
-									<th>Ano. Semestre</th>
-									<th>Fechar Semestre</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="semestre" items="${semestres}">
+				<br> <br> <br>
+				
+				<div class="col-md-6">
+					<div class="panel panel-default">
+						<div class="panel-heading"><strong>Ultimos Semestres</strong></div>
+						<div class="panel-body">
+							<table class="table">
+								<thead>
 									<tr>
-										<td>${semestre.anoSemestre}</td>
-										<td><c:choose>
-												<c:when test="${! semestre.status}">
-													<a disabled class="btn btn-default"> <span
-														class="glyphicon glyphicon-remove-sign"></span> Fechado
-													</a>
-												</c:when>
-												<c:when test="${semestre.status}">
-													<a class="btn btn-danger"
-														href="fecharSemestre?id=${semestre.id}"> <span
-														class="glyphicon glyphicon-remove-sign"></span> Fechar
-													</a>
-												</c:when>
-
-											</c:choose></td>
+										<th>Ano. Semestre</th>
+										<th>Fechar Semestre</th>
 									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
+								</thead>
+								<tbody>
+									<c:forEach var="semestre" items="${semestres}">
+										<tr>
+											<td>${semestre.anoSemestre}</td>
+											<td><c:choose>
+													<c:when test="${! semestre.status}">
+														<a disabled class="btn btn-default"> <span
+															class="glyphicon glyphicon-remove-sign"></span> Fechado
+														</a>
+													</c:when>
+													<c:when test="${semestre.status}">
+														<a class="btn btn-danger" href="fecharSemestre?id=${semestre.id}">
+															<span class="glyphicon glyphicon-remove-sign"></span> Fechar
+														</a>
+													</c:when>
+												</c:choose></td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -15,11 +15,12 @@
 	<jsp:include page="../topoAdmin.jsp"></jsp:include>
 
 
-
 	<!-- Corpo da pagina -->
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-7  col-lg-offset-1">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<jsp:include page="../MenuLateral.jsp"></jsp:include>
+			<div class="col-md-7">
+
 
 				<!-- mensagens -->
 				<jsp:include page="../../mensagens.jsp">
@@ -28,51 +29,59 @@
 				</jsp:include>
 
 
-				<div class="col-lg-offset-8">
-					<div class="page-header">
-						<div class="btn-group btn-group-justified">
-							<a  class="btn btn-default" href="formUsuario">
-								<span class="glyphicon glyphicon-plus"></span> Inserir
-							</a> <a  class="btn btn-default" href="listaUsuario">
-								<span class="glyphicon glyphicon-search"></span> Pesquisar
-							</a>
+				<div class="row">
+					<div class="col-md-5">
+						<div class="page-header">
+							<h2>Cadastro de Usuario</h2>
+						</div>
+					</div>
+					
+					<div class="col-md-offset-2 col-md-4">
+						<div class="page-header">
+							<div class="btn-group btn-group-justified">
+								<a class="btn btn-default" href="formUsuario"> <span
+									class="glyphicon glyphicon-plus"></span> Inserir
+								</a> <a class="btn btn-default" href="listaUsuario"> <span
+									class="glyphicon glyphicon-search"></span> Pesquisar
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>
+				<br>
 
-				<div class="page-header">
-					<h2>Cadastro de Usuario</h2>
+				<div class="row">
+					<div class="col-md-6">
+						<form:form role="form" method="post" action="addUsuario"
+							modelAttribute="usuario">
+							<div class="form-group">
+								<label for="nome">Nome Completo*</label>
+								<form:input type="text" class="form-control" id="nome" path="nome" />
+							</div>
+							<div class="form-group">
+								<label for="email">Email*</label>
+								<form:input type="email" class="form-control" id="email" path="email" />
+							</div>
+							<div class="form-group">
+								<label for="password">Senha*</label>
+								<form:password class="form-control" id="password" placeholder=""
+									required="required" path="senha" />
+							</div>
+							<div class="form-grupo">
+								<label>Escola o Perfil so Usuario</label> <select class="form-control"
+									name="role">
+									<option value="ROLE_ADMIN">Administrador</option>
+									<option value="ROLE_ALUNO">Aluno</option>
+									<option value="ROLE_PROFESSOR">Professor</option>
+								</select>
+							</div>
+							<br>
+							<button type="submit" class="btn btn-primary">
+								<span class="glyphicon glyphicon-saved"></span> Salvar
+							</button>
+						</form:form>
+					</div>
 				</div>
-				
-				<form:form role="form" method="post" action="addUsuario"
-					modelAttribute="usuario">
-					<div class="form-group">
-						<label for="nome">Nome Completo*</label>
-						<form:input type="text" class="form-control" id="nome" path="nome" />
-					</div>
-					<div class="form-group">
-						<label for="email">Email*</label>
-						<form:input type="email" class="form-control" id="email"
-							path="email" />
-					</div>
-					<div class="form-group">
-						<label for="password">Senha*</label>
-						<form:password class="form-control" id="password" placeholder="" required="required"
-							path="senha" />
-					</div>
-					<div class="form-grupo">
-						<label>Escola o Perfil so Usuario</label> <select
-							class="form-control" name="role">
-							<option value="ROLE_ADMIN">Administrador</option>
-							<option value="ROLE_ALUNO">Aluno</option>
-							<option value="ROLE_PROFESSOR">Professor</option>
-						</select>
-					</div>
-					<br>
-					<button type="submit" class="btn btn-primary">
-						<span class="glyphicon glyphicon-saved"></span> Salvar
-					</button>
-				</form:form>
 			</div>
 		</div>
 	</div>

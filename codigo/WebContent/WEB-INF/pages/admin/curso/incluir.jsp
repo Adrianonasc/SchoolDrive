@@ -11,13 +11,14 @@
 <title>SchoolDrive</title>
 </head>
 <body>
-
 	<jsp:include page="../topoAdmin.jsp"></jsp:include>
 
 	<!-- Corpo da pagina -->
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-7 col-lg-offset-1">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<jsp:include page="../MenuLateral.jsp"></jsp:include>
+
+			<div class="col-md-7">
 
 				<!-- mensagens -->
 				<jsp:include page="../../mensagens.jsp">
@@ -25,34 +26,39 @@
 					<jsp:param value="${mensagens}" name="mensagens" />
 				</jsp:include>
 
-
-				<div class="page-header">
-					<h3>Adcionar Curso</h3>
+				<div class="row">
+					<div class="col-md-5">
+						<div class="page-header">
+							<h3>Abrir Semestre</h3>
+						</div>
+					</div>
 				</div>
-				<form:form action="incluirCurso" method="post" role="form"
-					modelAttribute="curso">
+
+
+				<form:form action="incluirCurso" cssClass="form-inline" method="post"
+					role="form" modelAttribute="curso">
 					<div class="form-group">
-						<label for="nome">Nome Curso</label>
+						<label for="nome">Descrição Curso</label>
 						<form:input type="text" class="form-control" id="nome" path="nome" />
 					</div>
 					<button type="submit" class="btn btn-primary">
 						<span class="glyphicon glyphicon-saved"></span>Cadastrar Curso
 					</button>
-					
 				</form:form>
+				<br>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-lg-7 col-lg-offset-1">
-				<div class="page-header">
-					<h3>Cursos Cadastrados</h3>
-				</div>
 
+		<div class="row">
+			<div class="col-md-6">
+				<div class="page-header">
+					<h4>Cursos Cadastrados</h4>
+				</div>
 				<div class="table-responsive">
 					<table class="table table-bordered">
 						<thead align="center">
 							<tr>
-								<th>Nome Curso</th>
+								<th>Descrição Curso</th>
 								<th>Excluir</th>
 							</tr>
 						</thead>

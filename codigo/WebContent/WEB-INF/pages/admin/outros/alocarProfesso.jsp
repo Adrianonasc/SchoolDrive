@@ -15,9 +15,11 @@
 	<jsp:include page="../topoAdmin.jsp"></jsp:include>
 
 	<!-- Corpo da pagina -->
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-7 col-lg-offset-1">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<jsp:include page="../MenuLateral.jsp"></jsp:include>
+
+			<div class="col-md-7">
 
 				<!-- mensagens -->
 				<jsp:include page="../../mensagens.jsp">
@@ -30,31 +32,42 @@
 					<h3>Alocar Professor</h3>
 				</div>
 				<form action="alocarProfessor" method="post" role="form">
-					<div class="form-group">
-						<label>Escolha um Professor</label> 
-						<select name="professor"	cssClass="form-control" required='required'>
-							<c:forEach var="professor" items="${professores}">
-								<option value="${professor.id}"><c:out value="${professor.nome}" /></option>
-							</c:forEach>
-						</select>
-					</div>
-					<div class="form-group">
-						<label>Escolha a Disciplina</label> 
-						<select name="disciplina"	cssClass="form-control" required='required'>
-							<c:forEach var="disciplina" items="${disciplinas}">
-								<option value="${disciplina.id}"><c:out value="${disciplina.nome}" /></option>
-							</c:forEach>
-						</select>
-					</div>
-					<button type="submit" class="btn btn-primary">
-						<span class="glyphicon glyphicon-saved"></span>Alocar Professor
-					</button>
+					<div class="col-md-6">
+						<div class="form-group">
 
+							<label>Escolha um Professor</label> <select name="professor"
+								class="form-control" required='required'>
+								<c:forEach var="professor" items="${professores}">
+									<option class="form-control" value="${professor.id}">
+										<c:out value="${professor.nome}" /></option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+					
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Escolha a Disciplina</label> <select class="form-control"
+								name="disciplina" required='required'>
+								<c:forEach var="disciplina" items="${disciplinas}">
+									<option class="form-control" value="${disciplina.id}">
+										<c:out value="${disciplina.nome}" /></option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+					<div>
+					<div class="col-md-5 col-md-offset-5">
+					<br>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary">
+								<span class="glyphicon glyphicon-saved"></span> Alocar Professor
+							</button>
+						</div>
+					</div></div>
 				</form>
 			</div>
 		</div>
-
-
 	</div>
 </body>
 </html>

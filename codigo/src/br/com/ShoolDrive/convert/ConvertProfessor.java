@@ -9,7 +9,12 @@ import br.com.ShoolDrive.controler.IProfessorController;
 import br.com.ShoolDrive.entidade.Professor;
 
 
-
+/**
+ * 
+ * 17/12/2014
+ * @author Adriano 
+ * Classe Responsavel por converter o objeto para view
+ */
 @Component
 public class ConvertProfessor  extends PropertyEditorSupport {
 	

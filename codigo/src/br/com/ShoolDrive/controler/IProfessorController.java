@@ -5,7 +5,12 @@ import java.util.List;
 import br.com.ShoolDrive.entidade.Professor;
 import br.com.ShoolDrive.entidade.Role;
 import br.com.ShoolDrive.exception.RNException;
-
+/**
+ * 
+ * 17/12/2014
+ * @author Adriano 
+ * Classe Responsavel por RN Professor
+ */
 public interface IProfessorController{
 	/**
 	 * Pesquisa pelo email

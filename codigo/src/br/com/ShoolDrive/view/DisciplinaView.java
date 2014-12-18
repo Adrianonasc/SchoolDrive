@@ -84,7 +84,7 @@ public class DisciplinaView {
 			disciplinaController.save(disciplina);
 			
 			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.SUCESSO.getValor());
-			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), Mensagems.DisciplinaCadastrada.getMensagem());
+			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM, Mensagems.DisciplinaCadastrada);
 			model = this.reload(model);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -111,7 +111,7 @@ public class DisciplinaView {
 		try {
 			disciplinaController.delete(id);	
 			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.SUCESSO.getValor());
-			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), "Disciplina Excluida");
+			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM, "Disciplina Excluida");
 			model  = this.reload(model);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -124,7 +124,6 @@ public class DisciplinaView {
 		List<Disciplina> disciplinas = (List<Disciplina>) disciplinaController.findAll();
 		model.addObject("disciplinas", disciplinas);
 		return model;
-		
 	}
 
 }

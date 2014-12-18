@@ -68,7 +68,7 @@ public class UsuarioView {
 			
 		
 		model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.SUCESSO.getValor());
-		model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), Mensagems.UsuarioCadastrado.getMensagem());
+		model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM, Mensagems.UsuarioCadastrado);
 		model.addObject("usuarios", listaUsuario());
 		
 		
@@ -102,10 +102,8 @@ public class UsuarioView {
 			}
 			model.addObject("usuarios", listaUsuario());
 			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.SUCESSO.getValor());
-			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), Mensagems.UsuarioExcluido.getMensagem());
+			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM, Mensagems.UsuarioExcluido);
 		} catch (Exception e) {
-			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.ERRO.getValor());
-			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), Mensagems.ErroOperacaoUsuario.getMensagem());
 			e.printStackTrace();
 		}
 		return model;
@@ -116,22 +114,27 @@ public class UsuarioView {
 		Usuario usuario;
 		List<Usuario> listUsuario = new ArrayList<>();
 		
-		for (Aluno aluno : alunoController.findAll()) {
-			usuario = new Usuario(aluno.getId(), aluno.getEmail(), aluno.getSenha(), aluno.getNome(), aluno.getRole());
-			listUsuario.add(usuario);
-		}
+		
 		try {
+			//Lista Aluno
+			for (Aluno aluno : alunoController.findAll()) {
+				usuario = new Usuario(aluno.getId(), aluno.getEmail(), aluno.getSenha(), aluno.getNome(), aluno.getRole());
+				listUsuario.add(usuario);
+			}
+			//Lista Professor
 			for (Professor professor : professorController.findAll()) {
 				usuario = new Usuario(professor.getId(), professor.getEmail(), professor.getSenha(), professor.getNome(), professor.getRole());
+				listUsuario.add(usuario);
+			}
+			//Lista Adm
+			for (Administrador administrador : administradorController.findAll()) {
+				usuario = new Usuario(administrador.getId(), administrador.getEmail(), administrador.getSenha(), administrador.getNome(), administrador.getRole());
 				listUsuario.add(usuario);
 			}
 		} catch (RNException e) {
 			e.printStackTrace();
 		}
-		for (Administrador administrador : administradorController.findAll()) {
-			usuario = new Usuario(administrador.getId(), administrador.getEmail(), administrador.getSenha(), administrador.getNome(), administrador.getRole());
-			listUsuario.add(usuario);
-		}
+		
 		return listUsuario;
 	}
 }

@@ -49,13 +49,6 @@ public class SemestreController implements ISemestreController {
 					throw new RNException(
 							"Não é possível criar um semestre com o ano e ou Periodo, menor ou igual aos últimos listados!!");
 				}
-				/*if (!(Integer.parseInt(semestre.getAnoSemestre().substring(5)) > Integer
-						.parseInt(((List<Semestre>) semestreDao
-								.findAllByOrderByStatusDesc()).iterator()
-								.next().getAnoSemestre().substring(5)))) {
-					throw new RNException(
-							"Não é possível criar um semestre com o ano e ou Periodo, menor ou igual aos últimos listados!!");
-				}*/
 			}
 			if (!(semestre.getAnoSemestre().substring(0, 4).equals(Util
 					.getDataAtual().substring(6, 10)))) {

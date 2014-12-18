@@ -17,9 +17,10 @@ import br.com.ShoolDrive.entidade.Aluno;
 import br.com.ShoolDrive.entidade.Professor;
 
 /**
- * Classe Responsavel pela autenticação Usuario
  * 
- * @author Adriano 17/09/2014
+ * 17/12/2014
+ * @author Adriano 
+ * Classe Responsavel pela autenticação Usuario com suas permissao 
  */
 @Service
 public class Autenticacao implements UserDetailsService {

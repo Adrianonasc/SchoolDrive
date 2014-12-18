@@ -13,7 +13,11 @@ import br.com.ShoolDrive.entidade.Administrador;
 import br.com.ShoolDrive.entidade.Aluno;
 import br.com.ShoolDrive.entidade.Professor;
 import br.com.ShoolDrive.entidade.Role;
-
+/**
+ * 
+ * @author Adriano
+ * Classe Responsavel Pela Parte de Autenticação e premição do Usuario
+ */
 @Repository
 public class AutenticacaoDao {
 
@@ -32,10 +36,16 @@ public class AutenticacaoDao {
 
 		return userObject;
 	}
-
+	
+	/**
+	 * 
+	 * @param email
+	 * @return
+	 * Metodo Resposavel por recuperar o aluno 
+	 */
 	private Object getAlunodb(String email) {
 		try {
-			return (Aluno) this.jdbcTemplate.queryForObject("select * from aluno where email = '" + email + "'",
+			return (Aluno) this.jdbcTemplate.queryForObject("select * from aluno where email = ?",new Object[]{email},
 					new RowMapper<Aluno>() {
 						@Override
 						public Aluno mapRow(ResultSet rs, int arg1) throws SQLException {
@@ -55,11 +65,16 @@ public class AutenticacaoDao {
 			return null;
 		}
 	}
-
+	/**
+	 * 
+	 * @param email
+	 * @return
+	 * Metodo Resposavel por recuperar o Admin 
+	 */
 	private Object getAdmindb(String email) {
 
 		try {
-			return (Administrador) this.jdbcTemplate.queryForObject("select * from administrador where email = '" + email + "'",
+			return (Administrador) this.jdbcTemplate.queryForObject("select * from administrador where email = ?",new Object[]{email},
 					new RowMapper<Administrador>() {
 
 						@Override
@@ -91,10 +106,16 @@ public class AutenticacaoDao {
 
 	}
 
+	/**
+	 * 
+	 * @param email
+	 * @return
+	 * Metodo Resposavel por recuperar o Professor
+	 */
 	private Object getProfessordb(String email) {
 
 		try {
-			return (Professor) this.jdbcTemplate.queryForObject("select * from professor where email = '" + email + "'",
+			return (Professor) this.jdbcTemplate.queryForObject("select * from professor where email = ?",new Object[]{email},
 					new RowMapper<Professor>() {
 
 						@Override

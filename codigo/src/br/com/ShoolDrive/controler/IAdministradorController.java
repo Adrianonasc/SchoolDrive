@@ -5,10 +5,11 @@ import java.util.List;
 import br.com.ShoolDrive.entidade.Administrador;
 import br.com.ShoolDrive.entidade.Role;
 
-/***
- * Interface ADMINISTRADOR Controler
- * @author Adriano
- *
+/**
+ * 
+ * 17/12/2014
+ * @author Adriano 
+ * Classe Responsavel por RN Admin
  */
 public interface IAdministradorController {
 

@@ -1,7 +1,4 @@
 package br.com.ShoolDrive.entidade;
-
-
-
 /**
  * Classe tem a funcionalidade de ser a intancia para outras Entidade do tipo Usuario para 
  *  view na parte de login e cadastro de usuario
@@ -22,8 +19,7 @@ public class Usuario{
 		this.nome = nome;
 		this.role = role;
 	}
-
-
+	
 	private String email;
 	
 

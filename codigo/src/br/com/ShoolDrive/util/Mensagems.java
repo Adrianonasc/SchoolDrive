@@ -1,27 +1,26 @@
 package br.com.ShoolDrive.util;
 
-public enum Mensagems {
-	UsuarioCadastrado("Usuario Cadastrado Com Sucesso"),
-	UsuarioExcluido("Usuario Excluido!"),
-	ErroOperacaoUsuario("Ocorreu Um Erro !"),
-	DisciplinaCadastrada("Disciplina Cadastrada"),
-	
-	
-	
-	VARIAVEL_VIEW_MENSAGEM("mensagens")
-	
-	; 
-	
-	private String mensagem;
-	
-	public String getMensagem() {
-		return mensagem;
-	}
+/**
+ * 
+ * @author Adriano
+ *	Classe responsavel pela as mensagem para o view
+ */
+public class Mensagems {
+	//Variavel da view 
+	public static final String VARIAVEL_VIEW_MENSAGEM = "mensagens";
 
-	private Mensagems(String mensagem) {
-		this.mensagem = mensagem;
+	
+	/**
+	 * Mensagem do Administrador
+	 */
+	public static final String UsuarioCadastrado = "Usuario Cadastrado Com Sucesso";
+	public static final String UsuarioExcluido = "Usuario Excluido!";
+	public static final String ErroOperacaoUsuario = "Ocorreu Um Erro !";
+	
+	
+	//Disciplina
+	public static final String DisciplinaCadastrada = "Disciplina Cadastrada";
+	
+	
+	
 	}
-	
-	
-	
-}

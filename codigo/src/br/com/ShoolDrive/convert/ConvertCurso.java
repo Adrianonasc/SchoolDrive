@@ -8,6 +8,12 @@ import org.springframework.stereotype.Component;
 import br.com.ShoolDrive.controler.ICursoController;
 import br.com.ShoolDrive.entidade.Curso;
 
+/**
+ * 
+ * 17/12/2014
+ * @author Adriano 
+ * Classe Responsavel por converter o objeto para view
+ */
 @Component
 public class ConvertCurso extends PropertyEditorSupport {
 	

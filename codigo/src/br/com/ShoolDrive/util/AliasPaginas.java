@@ -22,7 +22,7 @@ public class AliasPaginas {
 	public final static String CADASTRO_DISCIPLINA = "admin/disciplina/cadastro";
 	public final static String LISTA_DISCIPLINA = "admin/disciplina/lista";
 	
-	//VIEW Outros
+	//VIEW Configuraçoes
 	public final static String VIEW_ALOCAR_PROFESSOR = "admin/outros/alocarProfesso";
 	
 	

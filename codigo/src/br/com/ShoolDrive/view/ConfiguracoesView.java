@@ -63,7 +63,7 @@ public class ConfiguracoesView {
 		model.addObject("disciplinas", disciplinaController.listaDisciplina());
 		} catch (RNException e) {
 			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.ERRO.getValor());
-			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), e.getMensagem());
+			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM, e);
 		}
 		return model;
 	}
@@ -89,14 +89,14 @@ public class ConfiguracoesView {
 			disciplinaController.save(disciplina);
 			
 			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.SUCESSO.getValor());
-			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), "Professor Alocado A disciplina !!");
+			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM, "Professor Alocado A disciplina !!");
 			
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 			model.setViewName("redirect:home");
 			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.ERRO.getValor());
-			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), "Ocorreu um erro !");
+			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM, "Ocorreu um erro !");
 		}
 		return model;
 	}

@@ -68,7 +68,7 @@ public class CursoView {
 			cursoController.save(curso);
 			model =this.formCurso();
 			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.SUCESSO.getValor());
-			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), "Curso Cadastrado");
+			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM, "Curso Cadastrado");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -83,9 +83,7 @@ public class CursoView {
 			cursoController.delete(id);
 			model=this.formCurso();
 			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.SUCESSO.getValor());
-			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM.getMensagem(), "Disciplina Excluida");
-			
-			//model.setViewName("redirect:formCurso");
+			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM, "Disciplina Excluida");
 		} catch (Exception e) {
 			e.printStackTrace();
 			

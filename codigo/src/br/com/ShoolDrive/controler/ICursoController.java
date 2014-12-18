@@ -1,7 +1,12 @@
 package br.com.ShoolDrive.controler;
 
 import br.com.ShoolDrive.entidade.Curso;
-
+/**
+ * 
+ * 17/12/2014
+ * @author Adriano 
+ * Classe Responsavel por RN Curso
+ */
 public interface ICursoController  {
 	
 	/**

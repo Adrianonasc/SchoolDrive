@@ -5,6 +5,12 @@ import java.util.List;
 import br.com.ShoolDrive.entidade.Aluno;
 import br.com.ShoolDrive.entidade.Role;
 
+/**
+ * 
+ * 17/12/2014
+ * @author Adriano 
+ * Classe Responsavel por RN aluno
+ */
 public interface IAlunoController{
 	/**
 	 * Pesquisa pelo email

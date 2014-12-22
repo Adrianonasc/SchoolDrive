@@ -1,10 +1,11 @@
 package br.com.ShoolDrive.dao;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import br.com.ShoolDrive.entidade.Professor;
 import br.com.ShoolDrive.entidade.Role;
-
+@Repository
 public interface IProfessorDao extends CrudRepository<Professor, Long> {
 	/**
 	 * Pesquisa pelo email

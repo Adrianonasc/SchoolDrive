@@ -56,4 +56,9 @@ public class DisciplinaController implements IDisciplinaController {
 		}
 		return listaDisciplina;
 	}
+
+	@Override
+	public Iterable<Disciplina> DisciplinasProfessor(Long idProfesor) {
+		return disciplinaDao.findByProfessorId(idProfesor);
+	}
 }

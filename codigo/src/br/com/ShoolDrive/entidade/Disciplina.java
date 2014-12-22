@@ -24,7 +24,7 @@ public class Disciplina implements Serializable {
 	public Disciplina() {}
 	
 	@Id
-	@Column(name = "disciplina_id")
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "disciplina_seq")
 	private long id;
 	

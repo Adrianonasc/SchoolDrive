@@ -30,4 +30,12 @@ public interface IDisciplinaController {
 	public Iterable<Disciplina> listaDisciplina()throws RNException;
 	
 	
+	/**
+	 * 
+	 * @return Lista de Disciplina
+	 * Metodo Resposavel por Obtem todas as diciplinas que o Professor esta Alocado
+	 */
+	public Iterable<Disciplina> DisciplinasProfessor(Long idProfesor);
+	
+	
 }

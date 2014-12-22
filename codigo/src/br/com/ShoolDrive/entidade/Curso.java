@@ -26,7 +26,7 @@ public class Curso implements Serializable{
 	public Curso() {}
 	
 	@Id
-	@Column(name = "curso_id")
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "curso_seq")
 	private long id;
 

@@ -29,7 +29,7 @@ public class Semestre implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "semestre_seq")
 	private long id;
 
-	@Column(name = "ano_Semestre", length = 150)
+	@Column(name = "anoSemestre", length = 150)
 	private String anoSemestre;
 	
 	/**

@@ -8,17 +8,23 @@ import br.com.ShoolDrive.entidade.Disciplina;
 public interface IDisciplinaDao extends CrudRepository<Disciplina, Long> {
 
 	@Override
-	public void delete(Long id);
+	void delete(Long id);
 	
 	
 	Iterable<Disciplina> findAll();
 	
 	@Override
-	public Disciplina findOne(Long id);
+	Disciplina findOne(Long id);
 	
 	@Override
-	public <S extends Disciplina> S save(S disciplina);
+	 <S extends Disciplina> S save(S disciplina);
 	
 	@Override
-	public long count();
+	 long count();
+	
+	
+	Iterable<Disciplina> findByProfessorId(Long professorId);
+	
+	
+	
 }

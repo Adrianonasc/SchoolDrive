@@ -46,7 +46,7 @@ public class Autenticacao implements UserDetailsService {
 			listGranted = new ArrayList<GrantedAuthority>();
 			simpleGrantedAuthority = new SimpleGrantedAuthority(aluno.getRole().toString());
 			listGranted.add(simpleGrantedAuthority);
-			user = new org.springframework.security.core.userdetails.User(email, aluno.getSenha(), true, true, true, true,
+			user = new org.springframework.security.core.userdetails.User(aluno.getEmail(), aluno.getSenha(), true, true, true, true,
 					listGranted);
 			return user;
 		} else if (objUsuario instanceof Professor) {
@@ -54,7 +54,7 @@ public class Autenticacao implements UserDetailsService {
 			listGranted = new ArrayList<GrantedAuthority>();
 			simpleGrantedAuthority = new SimpleGrantedAuthority(professor.getRole().toString());
 			listGranted.add(simpleGrantedAuthority);
-			user = new org.springframework.security.core.userdetails.User(email, professor.getSenha(), true, true, true, true,
+			user = new org.springframework.security.core.userdetails.User(professor.getEmail(), professor.getSenha(), true, true, true, true,
 					listGranted);
 			return user;
 		} else  {
@@ -62,7 +62,7 @@ public class Autenticacao implements UserDetailsService {
 			listGranted = new ArrayList<GrantedAuthority>();
 			simpleGrantedAuthority = new SimpleGrantedAuthority(admin.getRole().toString());
 			listGranted.add(simpleGrantedAuthority);
-			user = new org.springframework.security.core.userdetails.User(email, admin.getSenha(), true, true, true, true,
+			user = new org.springframework.security.core.userdetails.User(admin.getEmail(), admin.getSenha(), true, true, true, true,
 					listGranted);
 
 			return user;

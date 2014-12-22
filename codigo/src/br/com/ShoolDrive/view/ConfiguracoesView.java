@@ -63,7 +63,7 @@ public class ConfiguracoesView {
 		model.addObject("disciplinas", disciplinaController.listaDisciplina());
 		} catch (RNException e) {
 			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.ERRO.getValor());
-			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM, e);
+			model.addObject(Mensagems.VARIAVEL_VIEW_MENSAGEM, e.getMensagem());
 		}
 		return model;
 	}

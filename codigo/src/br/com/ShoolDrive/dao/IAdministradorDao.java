@@ -1,6 +1,7 @@
 package br.com.ShoolDrive.dao;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import br.com.ShoolDrive.entidade.Administrador;
 import br.com.ShoolDrive.entidade.Role;
@@ -10,6 +11,7 @@ import br.com.ShoolDrive.entidade.Role;
  * @author Adriano
  *
  */
+@Repository
 public interface IAdministradorDao extends CrudRepository<Administrador, Long> {
 
 	/**

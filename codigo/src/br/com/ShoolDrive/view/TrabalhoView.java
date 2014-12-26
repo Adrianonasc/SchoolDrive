@@ -1,5 +1,6 @@
 package br.com.ShoolDrive.view;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
@@ -55,7 +56,6 @@ public class TrabalhoView {
         binder.registerCustomEditor(Disciplina.class, this.convertDisciplina);
     }
 
-
     @RequestMapping("/formPublicarTrabalho")
     public ModelAndView formTrabalho() {
         ModelAndView model = new ModelAndView(AliasPaginas.VIEW_INCLUIR_TRABALHO);
@@ -76,15 +76,9 @@ public class TrabalhoView {
             @RequestParam("disciplina") Long disciplinaID) {
         ModelAndView model = new ModelAndView("redirect:formPublicarTrabalho");
 
-        String ano = trabalho.getDataLimite().substring(0, 4);
-        String mes = trabalho.getDataLimite().substring(5, 7);
-        String dia = trabalho.getDataLimite().substring(8, 10);
 
-        String dataFormatada = dia + "/" + mes + "/" + ano;
-        trabalho.setDataLimite(dataFormatada);
         try {
             trabalho.setDisciplina(this.disciplinaController.findOne(disciplinaID));
-
             this.trabalhoController.save(trabalho);
             model = this.formTrabalho();
             model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.SUCESSO.getValor());
@@ -105,7 +99,6 @@ public class TrabalhoView {
         } catch (RNException e) {
             e.printStackTrace();
         }
-
         return model;
     }
 

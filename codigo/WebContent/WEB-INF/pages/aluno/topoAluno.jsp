@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <sec:authorize access="isAuthenticated()">
@@ -12,21 +13,29 @@
 						<span class="sr-only">Navegação</span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span> <span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="home"><span class="glyphicon glyphicon-book"></span> ShoolDrive</a>
+					<a class="navbar-brand" href="home"><span
+						class="glyphicon glyphicon-book"></span> ShoolDrive</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<!-- Links Principais -->
-						
+
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="recuo">
-						<p class="navbar-text">
+							<p class="navbar-text">
+								<a class="navbar-link"><span class="glyphicon glyphicon-user">
+								</span> <sec:authentication	property="name" /></a>
+							</p>
+						</li>
+						<li class="recuo">
+							<p class="navbar-text">
 								<a href="<c:url value="/j_spring_security_logout"/>" class="navbar-link"><span
 									class="glyphicon glyphicon-log-out"></span> Sair</a>
-						</p></li>
+							</p>
+						</li>
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->

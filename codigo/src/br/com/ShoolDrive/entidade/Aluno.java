@@ -31,6 +31,7 @@ public class Aluno implements Serializable {
 	private long id;
 
 	public Aluno() {}
+
 	public Aluno(long id, String email, String senha, String nome, Role role) {
 		super();
 		this.id = id;
@@ -54,41 +55,48 @@ public class Aluno implements Serializable {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "user_role")
 	private Role role;
-	
-	@ManyToOne
-	@JoinColumn(name="curso_id")
-	private Curso curso;
-	
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(name="registrado_disciplina",
-			joinColumns={@JoinColumn(name="aluno_id")},
-			inverseJoinColumns={@JoinColumn(name="disciplina_id")})
-	private List<Disciplina> disciplinas; 
 
-	@OneToMany(mappedBy="aluno",fetch=FetchType.LAZY)
+	@ManyToOne
+	@JoinColumn(name = "curso_id")
+	private Curso curso;
+
+
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "registrado_disciplina", joinColumns = {@JoinColumn(name = "aluno_id")},
+			inverseJoinColumns = {@JoinColumn(name = "disciplina_id")})
+	private List<Disciplina> disciplinas;
+
+	@OneToMany(mappedBy = "aluno", fetch = FetchType.LAZY)
 	private List<Entrega> entregas;
-	
+
 
 	public List<Entrega> getEntregas() {
-		return entregas;
+		return this.entregas;
 	}
+
 	public void setEntregas(List<Entrega> entregas) {
 		this.entregas = entregas;
 	}
+
 	public List<Disciplina> getDisciplinas() {
-		return disciplinas;
+		return this.disciplinas;
 	}
+
 	public void setDisciplinas(List<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
 	}
+
 	public Curso getCurso() {
-		return curso;
+		return this.curso;
 	}
+
 	public void setCurso(Curso curso) {
 		this.curso = curso;
 	}
+
 	public Role getRole() {
-		return role;
+		return this.role;
 	}
 
 	public void setRole(Role role) {
@@ -120,7 +128,7 @@ public class Aluno implements Serializable {
 	}
 
 	public long getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(long id) {

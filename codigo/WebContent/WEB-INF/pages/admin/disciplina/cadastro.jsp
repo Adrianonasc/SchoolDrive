@@ -57,7 +57,7 @@
 							</div>
 
 							<div class="form-group">
-								<label>Escolha o Curso</label> <select name="curso"	cssClass="form-control">
+								<label>Escolha o Curso</label> <select class="form-control" name="curso"	cssClass="form-control">
 									<c:forEach var="curso" items="${cursos}">
 										<option class="form-control" value="${curso.id}"><c:out value="${curso.nome}" /></option>
 									</c:forEach>

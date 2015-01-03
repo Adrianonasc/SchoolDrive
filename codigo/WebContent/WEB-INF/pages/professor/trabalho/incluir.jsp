@@ -9,9 +9,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SchoolDrive</title>
-<script type="text/javascript" src="<c:url value="/resources/js/nicEdit.js" />">
-	
-</script>
+<script type="text/javascript" src="<c:url value="/resources/js/nicEdit.js" />"></script>
+<link rel="stylesheet" type="text/css"	href="<c:url value="/resources/js/jquery-ui.min.css" />" />
+<script type="text/javascript" src="<c:url value="/resources/js/jquery-ui.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/datepicker-pt-BR.js"/>"></script>
 <script type="text/javascript">
 	bkLib.onDomLoaded(function() {
 		new nicEditor({
@@ -19,6 +20,9 @@
 			iconsPath : '/ShoolDrive/resources/js/nicEditorIcons.gif'
 		}).panelInstance("areaEditor");
 	});
+	$(document).ready(function() {
+	    $("#dataEntrega").datepicker($.datepicker.regional['pt-BR']);
+	  });
 </script>
 </head>
 <body>
@@ -60,13 +64,13 @@
 					<form:form action="incluirTrabalho" method="post" role="form"
 						modelAttribute="trabalho">
 						<div class="form-group">
-							<label>Titulo</label>
+							<label>Título</label>
 							<form:input path="titulo" cssClass="form-control" type="text" />
 						</div>
 
 						<div class="form-group">
 							<label>Prazo Entrega</label>
-							<form:input path="dataLimite"  id="dataEntrega" cssClass="form-control" type="date" />
+							<form:input path="dataLimite"  id="dataEntrega"  cssClass="form-control"/>
 						</div>
 
 						<label>Disciplina</label>
@@ -84,12 +88,9 @@
 								<span class="glyphicon glyphicon-saved"> </span> Salvar e Publicar
 							</button>
 						</div>
-
 						<div class="form-group">
-							<form:textarea path="descricao" id="areaEditor"
-								cssStyle="height: 400px; width: 500px;" />
+							<form:textarea path="descricao" id="areaEditor"	cssStyle="height: 400px; width: 500px;" />
 						</div>
-
 					</form:form>
 				</div>
 			</div>

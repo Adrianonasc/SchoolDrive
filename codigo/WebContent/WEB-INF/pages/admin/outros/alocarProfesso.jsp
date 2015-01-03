@@ -35,11 +35,12 @@
 					<div class="col-md-6">
 						<div class="form-group">
 
-							<label>Escolha um Professor</label> <select name="professor"
-								class="form-control" required='required'>
+							<label>Escolha um Professor</label>
+							<select name="professor" class="form-control" required='required'>
 								<c:forEach var="professor" items="${professores}">
 									<option class="form-control" value="${professor.id}">
-										<c:out value="${professor.nome}" /></option>
+										<c:out value="${professor.nome}" />
+									</option>
 								</c:forEach>
 							</select>
 						</div>

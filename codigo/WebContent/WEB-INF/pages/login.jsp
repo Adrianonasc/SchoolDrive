@@ -22,7 +22,7 @@
 					<h2 class="form-signin-heading" align="center">Acesso</h2>
 					<input type="text" class="form-control" name="j_username"	id="j_username" placeholder="Nome do Usuario" 
 						required="" autofocus="" /> <input type="password" class="form-control"
-						name="j_password" id="j_password" placeholder="Senha" required="" />
+						name="j_password" id="j_password" placeholder="Senha" required="required" />
 					<input type="checkbox" value="remember-me" id="rememberMe"
 						name="rememberMe" class="chk"><label for="rememberMe">Remember me </label> 
 						<label><a align="center" href="">Esqueceu o seu	usuário ou senha?</a></label>

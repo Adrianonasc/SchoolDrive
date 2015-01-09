@@ -47,5 +47,12 @@ public interface IDisciplinaController {
 	 */
 	public List<Disciplina> DisciplinasCurso(Long cursoId, String emailAluno);
 
+	/**
+	 * 
+	 * @return
+	 * Metodo Resposavel por retornar todas as disciplinas que o Aluno Estaja registrado
+
+	public List<Disciplina> disciplinasResistradas(String );*/
+
 
 }

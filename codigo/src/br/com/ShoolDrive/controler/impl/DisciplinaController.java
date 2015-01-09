@@ -71,10 +71,10 @@ public class DisciplinaController implements IDisciplinaController {
 		List<Disciplina> disciplinas = (List<Disciplina>) this.disciplinaDao.findByCursoId(CursoId);
 		List<Disciplina> disciplinasRegistrada = this.AlunoController.findByEmail(emailAluno).getDisciplinas();
 
-		for (Disciplina disciplina : disciplinasRegistrada) {
-			for (Disciplina disciplinaR : disciplinas) {
-				if (disciplina.getId() == disciplinaR.getId()) {
-					disciplinas.remove(disciplinaR);
+		for (Disciplina disciplinaRegistrada : disciplinasRegistrada) {
+			for (Disciplina disciplinaCurso : disciplinas) {
+				if (disciplinaCurso.getId() == disciplinaRegistrada.getId()) {
+					disciplinas.remove(disciplinaCurso);
 				}
 			}
 		}

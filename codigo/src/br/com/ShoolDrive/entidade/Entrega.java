@@ -1,6 +1,7 @@
 package br.com.ShoolDrive.entidade;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 /**
  * 
@@ -23,50 +29,63 @@ import javax.persistence.Table;
 @SequenceGenerator(name = "entrega_seq", sequenceName = "entrega_seq", allocationSize = 1, initialValue = 1)
 public class Entrega implements Serializable {
 
+	public String getNomeAnexo() {
+		return this.nomeAnexo;
+	}
+
+	public void setNomeAnexo(String nomeAnexo) {
+		this.nomeAnexo = nomeAnexo;
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	public Entrega() {}
-	
+
 	@Id
 	@Column(name = "id", nullable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "entrega_seq")
 	private long id;
-	
-	@Column(name="data_entrega")
-	private String dataEntrega;
-	
+
+	@Temporal(TemporalType.DATE)
+	@Column(name = "data_entrega")
+	@DateTimeFormat(pattern = "dd/MM/yyyy", iso = ISO.DATE)
+	private Date dataEntrega;
+
 	@Column
 	private byte[] anexo;
-	
+
+	@Column(name = "nome_anexo")
+	private String nomeAnexo;
+
 	@Column
 	private String nota;
-	
+
 	@ManyToOne
-	@JoinColumn(name="aluno_id")
+	@JoinColumn(name = "aluno_id")
 	private Aluno aluno;
-	
+
 	@ManyToOne
-	@JoinColumn(name="trabalho_id")
+	@JoinColumn(name = "trabalho_id")
 	private Trabalho trabalho;
 
 	public long getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(long id) {
 		this.id = id;
 	}
 
-	public String getDataEntrega() {
-		return dataEntrega;
+	public Date getDataEntrega() {
+		return this.dataEntrega;
 	}
 
-	public void setDataEntrega(String dataEntrega) {
+	public void setDataEntrega(Date dataEntrega) {
 		this.dataEntrega = dataEntrega;
 	}
 
 	public byte[] getAnexo() {
-		return anexo;
+		return this.anexo;
 	}
 
 	public void setAnexo(byte[] anexo) {
@@ -74,7 +93,7 @@ public class Entrega implements Serializable {
 	}
 
 	public String getNota() {
-		return nota;
+		return this.nota;
 	}
 
 	public void setNota(String nota) {
@@ -82,7 +101,7 @@ public class Entrega implements Serializable {
 	}
 
 	public Aluno getAluno() {
-		return aluno;
+		return this.aluno;
 	}
 
 	public void setAluno(Aluno aluno) {
@@ -90,15 +109,13 @@ public class Entrega implements Serializable {
 	}
 
 	public Trabalho getTrabalho() {
-		return trabalho;
+		return this.trabalho;
 	}
 
 	public void setTrabalho(Trabalho trabalho) {
 		this.trabalho = trabalho;
 	}
-	
-	
-	
-	
-	
+
+
+
 }

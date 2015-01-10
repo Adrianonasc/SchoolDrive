@@ -46,8 +46,11 @@ $(document).ready(function() {
 								<tr>
 									<td>Status</td>
 									<c:choose>
-										<c:when test="${status == true}">
+										<c:when test="${fn:contains(status,'Aberto')}">
 											<td><strong>Aberto</strong></td>
+										</c:when>
+										<c:when test="${fn:contains(status,'Entregue')}">
+											<td class="success"><strong>Entregue</strong></td>
 										</c:when>
 										<c:otherwise>
 											<td class="danger"><strong>Fechado</strong></td>

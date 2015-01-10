@@ -20,4 +20,16 @@ public interface IEntregaController {
 	 */
 	List<Entrega> findByTrabalho(Trabalho trabalho);
 
+
+
+	/**
+	 * 
+	 * @param trabalhoId
+	 * @param emailAluno
+	 * @return
+	 * Metodo Resposavel por retornar a entrega do trabalho
+	 */
+	Entrega findByAlunoAndTrabalho(Long trabalhoId, String emailAluno);
+
+
 }

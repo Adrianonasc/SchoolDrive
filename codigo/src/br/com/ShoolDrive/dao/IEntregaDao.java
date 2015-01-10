@@ -27,6 +27,13 @@ public interface IEntregaDao extends CrudRepository<Entrega, Long> {
 	 */
 	List<Entrega> findByTrabalho(Trabalho trabalho);
 
+	/**
+	 * 
+	 * @param aluno
+	 * @param trabalho
+	 * @return
+	 * Metodo Resposavel pela as pesquisa de todos os alunos
+	 */
 	public Entrega findByAlunoAndTrabalho(Aluno aluno, Trabalho trabalho);
 
 

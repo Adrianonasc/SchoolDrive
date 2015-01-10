@@ -11,7 +11,6 @@ import br.com.ShoolDrive.controler.ITrabalhoController;
 import br.com.ShoolDrive.dao.IAlunoDao;
 import br.com.ShoolDrive.dao.IEntregaDao;
 import br.com.ShoolDrive.dao.ITrabalho;
-import br.com.ShoolDrive.entidade.Aluno;
 import br.com.ShoolDrive.entidade.Disciplina;
 import br.com.ShoolDrive.entidade.Entrega;
 import br.com.ShoolDrive.entidade.Trabalho;
@@ -70,16 +69,5 @@ public class TrabalhoControlle implements ITrabalhoController {
 			e.printStackTrace();
 		}
 
-	}
-
-	@Override
-	public boolean verificarEntrega(Long trabalhoId, String emailAluno) {
-		Trabalho trabalho = this.trabalhoDao.findOne(trabalhoId);
-		Aluno aluno = this.alunoDao.findByEmail(emailAluno);
-		Entrega entrega = this.entregaDao.findByAlunoAndTrabalho(aluno, trabalho);
-		if (entrega != null) {
-			return true;
-		}
-		return false;
 	}
 }

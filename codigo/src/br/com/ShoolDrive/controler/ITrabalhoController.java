@@ -37,15 +37,4 @@ public interface ITrabalhoController {
 	 */
 	void EntregaTrabalho(Entrega entrega, String emailALuno, Long trabalhoId) throws RNException;
 
-	/***
-	 * 
-	 * @param trabalhoId
-	 * @param aluno
-	 * @return TRUE se foi entregue para essetrabalho <p> FALSE Caso Contrario
-	 * 
-	 * Metodo Resposavel por verificar se trabalho ja foi entregue
-	 */
-	boolean verificarEntrega(Long trabalhoId, String emailAluno);
-
-
 }

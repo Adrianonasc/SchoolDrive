@@ -75,6 +75,7 @@ public class DisciplinaController implements IDisciplinaController {
 			for (Disciplina disciplinaCurso : disciplinas) {
 				if (disciplinaCurso.getId() == disciplinaRegistrada.getId()) {
 					disciplinas.remove(disciplinaCurso);
+					break;
 				}
 			}
 		}

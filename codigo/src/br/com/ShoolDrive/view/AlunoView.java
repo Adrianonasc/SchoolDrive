@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.ShoolDrive.controler.IAlunoController;
 import br.com.ShoolDrive.controler.IDisciplinaController;
+import br.com.ShoolDrive.controler.IEntregaController;
 import br.com.ShoolDrive.controler.ITrabalhoController;
 import br.com.ShoolDrive.entidade.Entrega;
 import br.com.ShoolDrive.entidade.Trabalho;
@@ -33,6 +34,9 @@ public class AlunoView {
 	@Autowired
 	private ITrabalhoController trabalhoController;
 
+	@Autowired
+	private IEntregaController entregaControler;
+
 	@RequestMapping("/formListaDiscplinasAluno")
 	public ModelAndView listaDisciplinas() {
 		ModelAndView model = new ModelAndView(AliasPaginas.VIEW_LISTA_DISCIPLINA_ALUNO);
@@ -51,7 +55,7 @@ public class AlunoView {
 		ModelAndView model = new ModelAndView();
 		try {
 			this.alunoController.registrarDisciplina(cursoId, SecurityContextHolder.getContext().getAuthentication()
-																										  .getName());
+			                                         .getName());
 
 			model = this.listaDisciplinas();
 			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.SUCESSO.getValor());
@@ -83,14 +87,17 @@ public class AlunoView {
 		DateTime dataTrabalho = new DateTime(trabalho.getDataLimite());
 		String emailAluno = SecurityContextHolder.getContext().getAuthentication().getName();
 
-
-		// Verifica se a data esta posterior a data atual
-		if (dataTrabalho.isAfterNow() && (!this.trabalhoController.verificarEntrega(trabalhoId, emailAluno))) {
-			model.addObject("status", true);
+		Entrega entrega = this.entregaControler.findByAlunoAndTrabalho(trabalhoId, emailAluno);
+		if (entrega != null) {
+			model.addObject("entrega", entrega);
+			model.addObject("status", "Entregue");
+		}
+		else if (dataTrabalho.isAfterNow()) {// Verifica se a data esta posterior a data atual
+			model.addObject("status", "Aberto");
 		}
 		// data esta anterior a atual
 		else if (dataTrabalho.isBeforeNow()) {
-			model.addObject("status", false);
+			model.addObject("status", "Fechado");
 		}
 		model.addObject("trabalho", trabalho);
 		return model;
@@ -98,7 +105,7 @@ public class AlunoView {
 
 	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
 	public @ResponseBody ModelAndView uploadFileHandler(@RequestParam("file") MultipartFile file,
-																		 @RequestParam("Trabalhoid") Long TrabalhoId) {
+	                                                    @RequestParam("Trabalhoid") Long TrabalhoId) {
 		ModelAndView model = new ModelAndView();
 		model = this.formTrabalhoAberto();
 		Entrega entrega = new Entrega();

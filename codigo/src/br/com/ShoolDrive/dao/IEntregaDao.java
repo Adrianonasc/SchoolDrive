@@ -20,6 +20,9 @@ public interface IEntregaDao extends CrudRepository<Entrega, Long> {
 	public <S extends Entrega> S save(S entrega);
 
 
+	@Override
+	public Entrega findOne(Long entregaId);
+
 	/**
 	 * @param trabalho
 	 * @return List<Entrega>

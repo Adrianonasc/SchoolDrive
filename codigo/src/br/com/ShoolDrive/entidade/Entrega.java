@@ -29,14 +29,6 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 @SequenceGenerator(name = "entrega_seq", sequenceName = "entrega_seq", allocationSize = 1, initialValue = 1)
 public class Entrega implements Serializable {
 
-	public String getNomeAnexo() {
-		return this.nomeAnexo;
-	}
-
-	public void setNomeAnexo(String nomeAnexo) {
-		this.nomeAnexo = nomeAnexo;
-	}
-
 	private static final long serialVersionUID = 1L;
 
 	public Entrega() {}
@@ -94,6 +86,14 @@ public class Entrega implements Serializable {
 
 	public String getNota() {
 		return this.nota;
+	}
+
+	public String getNomeAnexo() {
+		return this.nomeAnexo;
+	}
+
+	public void setNomeAnexo(String nomeAnexo) {
+		this.nomeAnexo = nomeAnexo;
 	}
 
 	public void setNota(String nota) {

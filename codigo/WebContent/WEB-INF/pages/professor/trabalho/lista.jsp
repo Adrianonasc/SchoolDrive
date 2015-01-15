@@ -48,9 +48,9 @@ table {
 					</div>
 				</div>
 
-				<div class="col-md-6">
+				<div class="col-md-8">
 					<table class="table table-bordered table-hover">
-						<tr class="active">
+						<tr class="active" style="text-align: center;">
 							<th>Titulo</th>
 							<th>Disciplina</th>
 							<th>Prazo Entrega</th>

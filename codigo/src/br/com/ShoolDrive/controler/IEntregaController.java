@@ -1,9 +1,11 @@
 package br.com.ShoolDrive.controler;
 
 import java.util.List;
+import java.util.Map;
 
 import br.com.ShoolDrive.entidade.Entrega;
 import br.com.ShoolDrive.entidade.Trabalho;
+import br.com.ShoolDrive.exception.RNException;
 
 public interface IEntregaController {
 
@@ -20,7 +22,7 @@ public interface IEntregaController {
 	 */
 	List<Entrega> findByTrabalho(Trabalho trabalho);
 
-
+	public Entrega findOne(Long entregaId);
 
 	/**
 	 * 
@@ -30,6 +32,18 @@ public interface IEntregaController {
 	 * Metodo Resposavel por retornar a entrega do trabalho
 	 */
 	Entrega findByAlunoAndTrabalho(Long trabalhoId, String emailAluno);
+
+
+	/***
+	 * 
+	 * 
+	 * @param HashMap notas <p>
+	 * @param Trabalho trabalho <p>
+	 * <b>Key</b> = ID do Aluno <p>
+	 * <b>Value</b> = Nota <p>
+	 * Metodo Resposavel por publicar as notas dos alunos
+	 */
+	void publicarNotas(Map<String, String> notas, Trabalho trabalho) throws RNException;
 
 
 }

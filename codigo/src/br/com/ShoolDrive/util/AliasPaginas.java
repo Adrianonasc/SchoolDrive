@@ -22,6 +22,8 @@ public class AliasPaginas {
 	/****** View Professor *******/
 	public final static String VIEW_INCLUIR_TRABALHO = "professor/trabalho/incluir";
 	public final static String VIEW_LISTA_TRABALHO = "professor/trabalho/lista";
+	public final static String VIEW_LISTA_DISCIPLINA_TRABALHO = "professor/trabalho/listaDisciplinaTrabalho";
+	public final static String VIEW_LISTA_ENTREGAS = "professor/trabalho/entregas";
 
 	/**Alunos View**/
 	public final static String VIEW_LISTA_DISCIPLINA_ALUNO = "aluno/registroDisciplina";

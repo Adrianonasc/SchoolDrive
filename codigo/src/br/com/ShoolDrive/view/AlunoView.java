@@ -2,6 +2,7 @@ package br.com.ShoolDrive.view;
 
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,7 @@ import br.com.ShoolDrive.util.Mensagems;
 import br.com.ShoolDrive.util.TipoMensagem;
 
 @Controller
+@Secured("ROLE_ALUNO")
 public class AlunoView {
 
 	@Autowired
@@ -55,7 +57,7 @@ public class AlunoView {
 		ModelAndView model = new ModelAndView();
 		try {
 			this.alunoController.registrarDisciplina(cursoId, SecurityContextHolder.getContext().getAuthentication()
-			                                         .getName());
+																										  .getName());
 
 			model = this.listaDisciplinas();
 			model.addObject(TipoMensagem.VARIAVEL_VIEW_TIPO.getValor(), TipoMensagem.SUCESSO.getValor());
@@ -105,7 +107,7 @@ public class AlunoView {
 
 	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
 	public @ResponseBody ModelAndView uploadFileHandler(@RequestParam("file") MultipartFile file,
-	                                                    @RequestParam("Trabalhoid") Long TrabalhoId) {
+																		 @RequestParam("Trabalhoid") Long TrabalhoId) {
 		ModelAndView model = new ModelAndView();
 		model = this.formTrabalhoAberto();
 		Entrega entrega = new Entrega();
